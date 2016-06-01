@@ -52,4 +52,10 @@ public class Messages {
 
     }
 
+    public String getPlayerNotExist(){
+
+        return Msg.translate(this.getConfig().getString("player-not-exist"));
+
+    }
+
 }

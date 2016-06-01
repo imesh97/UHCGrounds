@@ -9,7 +9,7 @@ import java.util.*;
 
 public class WorldManager {
 
-    public void copyWorlds(String source, String target){
+    public static void copyWorlds(String source, String target){
 
         Bukkit.createWorld(new WorldCreator(target));
 
@@ -21,7 +21,7 @@ public class WorldManager {
 
     }
 
-    public void copyWorld(File source, File target) {
+    public static void copyWorld(File source, File target) {
         try {
             ArrayList<String> ignore = new ArrayList<String>(Arrays.asList("uid.dat", "session.dat"));
             if (!ignore.contains(source.getName())) {
@@ -50,7 +50,7 @@ public class WorldManager {
         }
     }
 
-    public void deleteWorld(String name){
+    public static void deleteWorld(String name){
 
         World delete = Bukkit.getWorld(name);
         File deleteFolder = delete.getWorldFolder();
@@ -59,7 +59,7 @@ public class WorldManager {
 
     }
 
-    public boolean deleteWorlds(File path) {
+    public static boolean deleteWorlds(File path) {
 
         if (path.exists()) {
 
@@ -83,14 +83,14 @@ public class WorldManager {
 
     }
 
-    public void unloadWorld(String name){
+    public static void unloadWorld(String name){
 
         World world = Bukkit.getWorld(name);
         unloadWorld(world);
 
     }
 
-    public void unloadWorld(World world) {
+    public static void unloadWorld(World world) {
 
         Bukkit.getServer().unloadWorld(world, true);
 

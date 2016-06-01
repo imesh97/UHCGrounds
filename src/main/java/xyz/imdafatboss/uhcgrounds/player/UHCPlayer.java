@@ -1,7 +1,9 @@
 package xyz.imdafatboss.uhcgrounds.player;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import xyz.imdafatboss.uhcgrounds.Home;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
 
@@ -117,6 +119,28 @@ public class UHCPlayer {
     public void addDeath(){
 
         this.setDeaths(this.getDeaths() + 1);
+
+    }
+
+    public void openInventory(Inventory inv){
+
+        this.getPlayer().openInventory(inv);
+
+    }
+
+    public boolean isOnline(){
+
+        for(Player p : Bukkit.getOnlinePlayers()){
+
+            if(p.getName().equals(this.getName())){
+
+                return true;
+
+            }
+
+        }
+
+        return false;
 
     }
 

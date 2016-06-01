@@ -2,6 +2,7 @@ package xyz.imdafatboss.uhcgrounds.cmd.api;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.imdafatboss.uhcgrounds.cmd.SaveKitCmd;
+import xyz.imdafatboss.uhcgrounds.cmd.StatsGuiCmd;
 
 import java.util.*;
 
@@ -16,6 +17,7 @@ public class CommandManager
             commands = new HashSet<CommandFactory>();
         }
         commands.add(new SaveKitCmd(plugin));
+        commands.add(new StatsGuiCmd(plugin));
     }
 
     public static CommandFactory getCommand(String name)

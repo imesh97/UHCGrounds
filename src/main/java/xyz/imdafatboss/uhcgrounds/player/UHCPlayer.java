@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import xyz.imdafatboss.uhcgrounds.Home;
+import xyz.imdafatboss.uhcgrounds.arena.Arena;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
 
 import java.util.UUID;
@@ -21,6 +22,7 @@ public class UHCPlayer {
     private int wins;
     private int kills;
     private int deaths;
+    private boolean ingame;
 
     public UHCPlayer(Player player){
 
@@ -30,6 +32,7 @@ public class UHCPlayer {
         this.player = player;
         this.name = player.getName();
         this.uuid = player.getUniqueId();
+        this.ingame = false;
 
         if(config.isConfigurationSection(player.getUniqueId().toString())){
 
@@ -133,6 +136,34 @@ public class UHCPlayer {
         for(Player p : Bukkit.getOnlinePlayers()){
 
             if(p.getName().equals(this.getName())){
+
+                return true;
+
+            }
+
+        }
+
+        return false;
+
+    }
+
+    public boolean isInGame(){
+
+        return this.ingame;
+
+    }
+
+    public void setInGame(boolean b){
+
+        this.ingame = b;
+
+    }
+
+    public boolean isInGame(Arena arena){
+
+        for(UHCPlayer player : arena.getPlayers()){
+
+            if(this.getPlayer().getName().equals(player.getName())){
 
                 return true;
 

@@ -10,6 +10,11 @@ import xyz.imdafatboss.uhcgrounds.utils.Utils;
 public class KitManager {
 
     Home plugin;
+    public KitManager(Home instance){
+
+        this.plugin = instance;
+
+    }
     FileManager fm;
 
     private Kit kit;
@@ -39,6 +44,26 @@ public class KitManager {
 
         Kit kit = new Kit(inv, armor);
         this.setKit(kit);
+        kit.setInventory(inv);
+        kit.setArmor(armor);
+
+    }
+
+    public void saveKit(){
+
+        fm = new FileManager(plugin);
+        YamlConfiguration config = fm.getConfig("kit.yml").get();
+        FileManager.Config cfg = fm.getConfig("kit.yml");
+
+        Inventory inv = this.getKit().getInventory();
+        ItemStack[] armor = this.getKit().getArmor();
+
+        String invString = Utils.halfInv(inv);
+        String armString = Utils.armorInv(armor);
+
+        config.set("inventory", invString);
+        config.set("armor", armString);
+        cfg.save();
 
     }
 

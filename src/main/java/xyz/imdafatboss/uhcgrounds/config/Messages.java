@@ -46,4 +46,10 @@ public class Messages {
 
     }
 
+    public String getHasntPlayed(){
+
+        return Msg.translate(this.getConfig().getString("player-hasnt-played"));
+
+    }
+
 }

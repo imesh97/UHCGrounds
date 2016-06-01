@@ -40,4 +40,10 @@ public class Messages {
 
     }
 
+    public String getStatsGUITitle(){
+
+        return Msg.translate(this.getConfig().getString("statsgui-title"));
+
+    }
+
 }

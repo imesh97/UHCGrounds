@@ -19,6 +19,12 @@ public class ItemBuilder
         this.item = new ItemStack(paramMaterial, 1, (short)(byte)paramInt);
     }
 
+    public ItemBuilder(int id, int paramInt){
+
+        this.item = new ItemStack(id, 1, (short) (byte) paramInt);
+
+    }
+
     public ItemBuilder setAmount(int paramInt) {
         this.item.setAmount(paramInt);
         return this;

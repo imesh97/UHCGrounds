@@ -58,4 +58,10 @@ public class Messages {
 
     }
 
+    public String getEnderpearlCooldown(){
+
+        return Msg.translate(this.getConfig().getString("enderpearl-cooldown-msg"));
+
+    }
+
 }

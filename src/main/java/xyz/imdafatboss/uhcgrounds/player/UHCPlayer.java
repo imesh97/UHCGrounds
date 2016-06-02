@@ -23,6 +23,7 @@ public class UHCPlayer {
     private int kills;
     private int deaths;
     private boolean ingame;
+    private long enderpearl;
 
     public UHCPlayer(Player player){
 
@@ -33,6 +34,7 @@ public class UHCPlayer {
         this.name = player.getName();
         this.uuid = player.getUniqueId();
         this.ingame = false;
+        this.enderpearl = System.currentTimeMillis();
 
         if(config.isConfigurationSection(player.getUniqueId().toString())){
 
@@ -172,6 +174,24 @@ public class UHCPlayer {
         }
 
         return false;
+
+    }
+
+    public long getEnderpearl(){
+
+        return this.enderpearl;
+
+    }
+
+    public void setEnderpearl(long time){
+
+        this.enderpearl = time;
+
+    }
+
+    public boolean canEnderpearl(){
+
+        return System.currentTimeMillis() > getEnderpearl();
 
     }
 

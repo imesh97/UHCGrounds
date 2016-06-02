@@ -18,6 +18,7 @@ public class Events {
         PluginManager pm = Bukkit.getServer().getPluginManager();
 
         pm.registerEvents(new GoldenHeadEvents(jp), plugin);
+        pm.registerEvents(new EnderpearlEvents(jp), plugin);
 
     }
 

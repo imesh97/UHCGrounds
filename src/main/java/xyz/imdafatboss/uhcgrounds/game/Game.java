@@ -1,5 +1,6 @@
 package xyz.imdafatboss.uhcgrounds.game;
 
+import org.bukkit.entity.Player;
 import xyz.imdafatboss.uhcgrounds.arena.Arena;
 import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
 
@@ -20,7 +21,7 @@ public class Game {
         this.id = arena.getID();
         this.arena = arena;
         this.on = false;
-        this.lobby = false;
+        this.lobby = true;
         this.grace = false;
         this.players = null;
         this.winner = null;
@@ -94,6 +95,19 @@ public class Game {
 
     }
 
+    public void removePlayer(UHCPlayer player){
+
+        List<UHCPlayer> players = this.getPlayers();
+        List<UHCPlayer> players1 = this.getArena().getPlayers();
+
+        players.remove(player);
+        players1.remove(player);
+
+        this.setPlayers(players);
+        this.getArena().setPlayers(players1);
+
+    }
+
     public UHCPlayer getWinner(){
 
         return this.winner;
@@ -103,6 +117,101 @@ public class Game {
     public void setWinner(UHCPlayer player){
 
         this.winner = player;
+
+    }
+
+    public boolean overPlayer(UHCPlayer player){
+
+        Player p = player.getPlayer();
+
+        for(UHCPlayer p2 : this.getPlayers()){
+
+            Player p1 = p2.getPlayer();
+            if(p.hasPermission("eximus.uhcgrounds.5")){
+
+                if(!p1.hasPermission("eximus.uhcgrounds.5")){
+
+                    this.removePlayer(p2);
+                    return true;
+
+                }
+
+                else{
+
+                    continue;
+
+                }
+
+            }
+
+            else if(p.hasPermission("eximus.uhcgrounds.4")){
+
+                if(p1.hasPermission("eximus.uhcgrounds.5") || p1.hasPermission("eximus.uhcgrounds.4")){
+
+                    continue;
+
+                }
+
+                else{
+
+                    this.removePlayer(p2);
+                    return true;
+
+                }
+
+            }
+
+            else if(p.hasPermission("eximus.uhcgrounds.3")){
+
+                if(p1.hasPermission("eximus.uhcgrounds.5") || p1.hasPermission("eximus.uhcgrounds.4")
+                        || p1.hasPermission("eximus.uhcgrounds.3")){
+
+                    continue;
+
+                }
+
+                else{
+
+                    this.removePlayer(p2);
+                    return true;
+
+                }
+
+            }
+
+            else if(p.hasPermission("eximus.uhcgrounds.2")){
+
+                if(p1.hasPermission("eximus.uhcgrounds.5") || p1.hasPermission("eximus.uhcgrounds.4")
+                        || p1.hasPermission("eximus.uhcgrounds.3") || p1.hasPermission("eximus.uhcgrounds.2")){
+
+                    continue;
+
+                }
+
+                else{
+
+                    this.removePlayer(p2);
+                    return true;
+
+                }
+
+            }
+
+            else if(p.hasPermission("eximus.uhcgrounds.1")){
+
+                return false;
+
+            }
+
+            else{
+
+                return false;
+
+            }
+
+        }
+
+        return false;
 
     }
 

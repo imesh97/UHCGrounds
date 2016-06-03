@@ -19,6 +19,7 @@ public class Events {
 
         pm.registerEvents(new GoldenHeadEvents(jp), plugin);
         pm.registerEvents(new EnderpearlEvents(jp), plugin);
+        pm.registerEvents(new StatsEvents(jp), plugin);
 
     }
 

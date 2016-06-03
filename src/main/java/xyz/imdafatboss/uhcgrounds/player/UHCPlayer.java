@@ -7,6 +7,7 @@ import org.bukkit.inventory.Inventory;
 import xyz.imdafatboss.uhcgrounds.Home;
 import xyz.imdafatboss.uhcgrounds.arena.Arena;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
+import xyz.imdafatboss.uhcgrounds.game.Game;
 
 import java.util.UUID;
 
@@ -24,6 +25,7 @@ public class UHCPlayer {
     private int deaths;
     private boolean ingame;
     private long enderpearl;
+    private Game game;
 
     public UHCPlayer(Player player){
 
@@ -35,6 +37,7 @@ public class UHCPlayer {
         this.uuid = player.getUniqueId();
         this.ingame = false;
         this.enderpearl = System.currentTimeMillis();
+        this.game = null;
 
         if(config.isConfigurationSection(player.getUniqueId().toString())){
 
@@ -192,6 +195,18 @@ public class UHCPlayer {
     public boolean canEnderpearl(){
 
         return System.currentTimeMillis() > getEnderpearl();
+
+    }
+
+    public Game getCurrentGame(){
+
+        return this.game;
+
+    }
+
+    public void setCurrentGame(Game game){
+
+        this.game = game;
 
     }
 

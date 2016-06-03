@@ -4,13 +4,15 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import xyz.imdafatboss.uhcgrounds.utils.ItemBuilder;
+import xyz.imdafatboss.uhcgrounds.utils.Msg;
 
 public class GoldenHead {
 
     public static ItemStack getGoldenHead(){
 
         ItemBuilder is = new ItemBuilder(Material.GOLDEN_APPLE, 0)
-                .setName("GOLDEN HEAD - REGEN");
+                .setName(Msg.translate("&6&lGolden &e&lHead"))
+                .setLore(new String[]{Msg.translate("&7Get &c4 hearts &7 back."), "Use it wisely!"});
         ItemStack itemStack = is.getStack();
 
         return itemStack;
@@ -21,7 +23,7 @@ public class GoldenHead {
 
         if(is == getGoldenHead()){
 
-            if(is.getItemMeta().getDisplayName().equals("GOLDEN HEAD - REGEN")){
+            if(is.getItemMeta().getDisplayName().equals(Msg.translate("&6&lGolden &e&lHead"))){
 
                 return true;
 

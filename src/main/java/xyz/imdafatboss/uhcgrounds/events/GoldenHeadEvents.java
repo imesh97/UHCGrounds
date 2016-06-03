@@ -44,20 +44,4 @@ public class GoldenHeadEvents implements Listener{
 
     }
 
-    @EventHandler
-    public void onPickUpGoldenHead(final PlayerPickupItemEvent e){
-
-        ItemStack is = e.getItem().getItemStack();
-        if(GoldenHead.isHead(is)){
-
-            Player p = e.getPlayer();
-            GoldenHead.applyHead(p);
-
-            p.getInventory().remove(is);
-            p.updateInventory();
-
-        }
-
-    }
-
 }

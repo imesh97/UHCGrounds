@@ -1,12 +1,17 @@
 package xyz.imdafatboss.uhcgrounds.game;
 
 import org.bukkit.entity.Player;
+import xyz.imdafatboss.uhcgrounds.Home;
 import xyz.imdafatboss.uhcgrounds.arena.Arena;
+import xyz.imdafatboss.uhcgrounds.config.Messages;
 import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
 
 import java.util.List;
 
 public class Game {
+
+    Home plugin;
+    Messages msg;
 
     private final int id;
     private final Arena arena;
@@ -17,6 +22,8 @@ public class Game {
     private UHCPlayer winner;
 
     public Game(Arena arena){
+
+        msg = new Messages(plugin);
 
         this.id = arena.getID();
         this.arena = arena;
@@ -105,6 +112,8 @@ public class Game {
 
         this.setPlayers(players);
         this.getArena().setPlayers(players1);
+
+        player.getPlayer().sendMessage(msg.prefix() + msg.getKicked());
 
     }
 

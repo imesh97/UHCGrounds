@@ -64,4 +64,16 @@ public class Messages {
 
     }
 
+    public String getAlreadyInGame(){
+
+        return Msg.translate(this.getConfig().getString("already-in-game"));
+
+    }
+
+    public String getKicked(){
+
+        return Msg.translate(this.getConfig().getString("kicked-higher-rank"));
+
+    }
+
 }

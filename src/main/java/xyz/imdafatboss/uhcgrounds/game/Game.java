@@ -10,6 +10,7 @@ public class Game {
     private final int id;
     private final Arena arena;
     private boolean on;
+    private boolean lobby;
     private boolean grace;
     private List<UHCPlayer> players;
     private UHCPlayer winner;
@@ -19,6 +20,7 @@ public class Game {
         this.id = arena.getID();
         this.arena = arena;
         this.on = false;
+        this.lobby = false;
         this.grace = false;
         this.players = null;
         this.winner = null;
@@ -46,6 +48,18 @@ public class Game {
     public void setOn(boolean b){
 
         this.on = b;
+
+    }
+
+    public boolean isLobby(){
+
+        return this.lobby;
+
+    }
+
+    public void setLobby(boolean b){
+
+        this.lobby = b;
 
     }
 

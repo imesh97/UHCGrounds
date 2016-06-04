@@ -76,4 +76,16 @@ public class Messages {
 
     }
 
+    public String getJoinedLobby(){
+
+        return Msg.translate(this.getConfig().getString("joined-game-lobby"));
+
+    }
+
+    public String getSetLobby(){
+
+        return Msg.translate(this.getConfig().getString("you-set-lobby"));
+
+    }
+
 }

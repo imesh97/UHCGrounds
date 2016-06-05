@@ -52,7 +52,7 @@ public class GameJoinCmd extends CommandFactory{
 
                     if(game.isLobby()){
 
-                        if(game.getSize() >= cfg.getMaxPlayers()){
+                        if(game.getSize() <= cfg.getMaxPlayers()){
 
                             if(game.overPlayer(player)){
 

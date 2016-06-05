@@ -2,6 +2,7 @@ package xyz.imdafatboss.uhcgrounds.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.World;
 
 public class Locations {
 
@@ -21,6 +22,17 @@ public class Locations {
                 Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
 
         return loc;
+
+    }
+
+    public static Location randomLocation(World world, int radius){
+
+        double xRandom = ((Math.random() * 3000)) - radius;
+        double zRandom = ((Math.random() * 3000)) - radius;
+        double yRandom = world.getHighestBlockYAt( (int) xRandom, (int) zRandom);
+        Location randomLocation = new Location(world, xRandom, yRandom, zRandom);
+
+        return randomLocation;
 
     }
 

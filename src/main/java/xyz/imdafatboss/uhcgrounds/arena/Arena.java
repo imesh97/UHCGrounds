@@ -1,9 +1,11 @@
 package xyz.imdafatboss.uhcgrounds.arena;
 
+import org.bukkit.World;
 import org.bukkit.configuration.file.YamlConfiguration;
 import xyz.imdafatboss.uhcgrounds.Home;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
 import xyz.imdafatboss.uhcgrounds.player.*;
+import xyz.imdafatboss.uhcgrounds.utils.WorldManager;
 
 import java.util.*;
 
@@ -18,6 +20,7 @@ public class Arena {
     private UHCPlayer winner;
     private final int maxplayers;
     private final int minplayers;
+    private World world;
 
     public Arena(int id, List<UHCPlayer> players){
 
@@ -27,6 +30,7 @@ public class Arena {
         this.id = id;
         this.players = players;
         this.winner = null;
+        this.world = null;
 
         if(this.config.isConfigurationSection("max-players")){
 
@@ -71,6 +75,24 @@ public class Arena {
     public void setWinner(UHCPlayer player){
 
         this.winner = player;
+
+    }
+
+    public World getWorld(){
+
+        return this.world;
+
+    }
+
+    public void setWorld(World newWorld){
+
+        this.world = newWorld;
+
+    }
+
+    public void makeWorld(String s){
+
+        WorldManager.copyWorlds("template", s);
 
     }
 

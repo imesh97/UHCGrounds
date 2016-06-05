@@ -1,17 +1,23 @@
 package xyz.imdafatboss.uhcgrounds.game;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import xyz.imdafatboss.uhcgrounds.Home;
 import xyz.imdafatboss.uhcgrounds.arena.Arena;
+import xyz.imdafatboss.uhcgrounds.config.ConfigYML;
 import xyz.imdafatboss.uhcgrounds.config.Messages;
 import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
+import xyz.imdafatboss.uhcgrounds.utils.Locations;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
 
     Home plugin;
     Messages msg;
+    ConfigYML cfg;
 
     private final int id;
     private final Arena arena;
@@ -24,6 +30,7 @@ public class Game {
     public Game(Arena arena){
 
         msg = new Messages(plugin);
+        cfg = new ConfigYML(plugin);
 
         this.id = arena.getID();
         this.arena = arena;
@@ -89,6 +96,55 @@ public class Game {
 
     }
 
+    public boolean canStart(){
+
+        return cfg.getMinPlayers() <= this.getPlayers().size();
+
+    }
+
+    public void start(){
+
+        List<UHCPlayer> started = new ArrayList<UHCPlayer>();
+        int radius = cfg.getScatterRadius();
+        double distance = cfg.getScatterDistance() * 1.0;
+        Location l = null;
+
+        for(UHCPlayer player : this.getPlayers()){
+
+            Location loc = Locations.randomLocation(this.getArena().getWorld(), radius);
+            l = loc;
+            if(started.size() == 0){
+
+                player.getPlayer().teleport(l);
+                started.add(player);
+                continue;
+
+            }
+            else{
+
+                for(UHCPlayer st : started){
+
+                    if(st.getPlayer().getLocation().distance(loc) <= distance){
+
+                        l = Locations.randomLocation(this.getArena().getWorld(), radius);
+                        continue;
+
+                    }
+
+                }
+
+                player.getPlayer().teleport(l);
+
+            }
+
+            player.getPlayer().sendMessage(msg.prefix() + msg.getStarted());
+
+        }
+
+        this.setOn(true);
+
+    }
+
     public void addPlayer(UHCPlayer player){
 
         List<UHCPlayer> players = this.getPlayers();
@@ -99,6 +155,26 @@ public class Game {
 
         this.setPlayers(players);
         this.getArena().setPlayers(players1);
+
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+            @Override
+            public void run() {
+
+                if(canStart()){
+
+                    if(!isOn()) {
+                        
+                        start();
+
+                    }
+
+                }
+
+            }
+
+        }, 20L * 15);
+
 
     }
 

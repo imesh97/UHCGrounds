@@ -2,6 +2,7 @@ package xyz.imdafatboss.uhcgrounds;
 
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.imdafatboss.uhcgrounds.cmd.api.CommandManager;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
 import xyz.imdafatboss.uhcgrounds.events.Events;
 import xyz.imdafatboss.uhcgrounds.game.Lobby;
@@ -13,6 +14,7 @@ public class Home extends JavaPlugin implements Listener{
     KitManager km;
     Events evt;
     Lobby lobby;
+    CommandManager cmd;
 
     @Override
     public void onEnable(){
@@ -21,6 +23,7 @@ public class Home extends JavaPlugin implements Listener{
         km = new KitManager(this);
         evt = new Events(this);
         lobby = new Lobby(this);
+        cmd = new CommandManager(this);
 
         fm.getConfig("config.yml").saveDefaultConfig();
         fm.getConfig("data.yml").saveDefaultConfig();
@@ -29,6 +32,7 @@ public class Home extends JavaPlugin implements Listener{
         km.updateKit();
         evt.registerEvents(this);
         lobby.loadData();
+
 
     }
 

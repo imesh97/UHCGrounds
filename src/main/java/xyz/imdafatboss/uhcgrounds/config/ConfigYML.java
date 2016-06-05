@@ -32,4 +32,16 @@ public class ConfigYML {
 
     }
 
+    public int getScatterRadius(){
+
+        return this.getConfig().getInt("scatter.radius");
+
+    }
+
+    public int getScatterDistance(){
+
+        return this.getConfig().getInt("scatter.distance");
+
+    }
+
 }

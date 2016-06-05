@@ -88,4 +88,10 @@ public class Messages {
 
     }
 
+    public String getStarted(){
+
+        return Msg.translate(this.getConfig().getString("game-started"));
+
+    }
+
 }

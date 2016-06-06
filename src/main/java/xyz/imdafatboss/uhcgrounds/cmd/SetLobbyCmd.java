@@ -31,6 +31,7 @@ public class SetLobbyCmd extends CommandFactory {
 
         Location loc = p.getLocation();
         lobby.setSpawn(loc);
+        lobby.saveData();
 
         p.sendMessage(msg.prefix() + msg.getSetLobby());
 

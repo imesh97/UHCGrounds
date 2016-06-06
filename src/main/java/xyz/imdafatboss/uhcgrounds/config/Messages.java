@@ -94,4 +94,16 @@ public class Messages {
 
     }
 
+    public String getSetSpawn(){
+
+        return Msg.translate(this.getConfig().getString("you-set-spawn"));
+
+    }
+
+    public String getYouWon(){
+
+        return Msg.translate(this.getConfig().getString("you-won"));
+
+    }
+
 }

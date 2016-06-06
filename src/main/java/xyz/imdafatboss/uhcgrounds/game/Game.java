@@ -7,6 +7,8 @@ import xyz.imdafatboss.uhcgrounds.Home;
 import xyz.imdafatboss.uhcgrounds.arena.Arena;
 import xyz.imdafatboss.uhcgrounds.config.ConfigYML;
 import xyz.imdafatboss.uhcgrounds.config.Messages;
+import xyz.imdafatboss.uhcgrounds.kits.KitManager;
+import xyz.imdafatboss.uhcgrounds.player.PlayerManager;
 import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
 import xyz.imdafatboss.uhcgrounds.utils.Locations;
 
@@ -18,6 +20,7 @@ public class Game {
     Home plugin;
     Messages msg;
     ConfigYML cfg;
+    KitManager km;
 
     private final int id;
     private final Arena arena;
@@ -31,6 +34,7 @@ public class Game {
 
         msg = new Messages(plugin);
         cfg = new ConfigYML(plugin);
+        km = new KitManager(plugin);
 
         this.id = arena.getID();
         this.arena = arena;
@@ -102,6 +106,16 @@ public class Game {
 
     }
 
+    public void giveKit(){
+
+        for(UHCPlayer player : this.getPlayers()){
+
+            km.giveKit(player);
+
+        }
+
+    }
+
     public void start(){
 
         List<UHCPlayer> started = new ArrayList<UHCPlayer>();
@@ -143,6 +157,31 @@ public class Game {
 
         this.setOn(true);
 
+        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+            @Override
+            public void run() {
+
+                giveKit();
+
+            }
+
+        }, 20L);
+
+    }
+
+    public void hidePlayers(UHCPlayer player){
+
+        for(UHCPlayer p : PlayerManager.getPlayers()){
+
+            if(!this.getPlayers().contains(p)){
+
+                player.getPlayer().hidePlayer(p.getPlayer());
+
+            }
+
+        }
+
     }
 
     public void addPlayer(UHCPlayer player){
@@ -164,7 +203,7 @@ public class Game {
                 if(canStart()){
 
                     if(!isOn()) {
-                        
+
                         start();
 
                     }

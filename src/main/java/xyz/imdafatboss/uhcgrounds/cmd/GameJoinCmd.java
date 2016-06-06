@@ -48,7 +48,7 @@ public class GameJoinCmd extends CommandFactory{
 
                 }
 
-                if(!game.isOn()){
+                else if(!game.isOn()){
 
                     if(game.isLobby()){
 
@@ -59,6 +59,8 @@ public class GameJoinCmd extends CommandFactory{
                                 game.addPlayer(player);
                                 p.sendMessage(msg.prefix() + msg.getJoinedLobby());
                                 p.teleport(lobby.getSpawn());
+                                game.hidePlayers(player);
+                                return;
 
                             }
 
@@ -70,9 +72,15 @@ public class GameJoinCmd extends CommandFactory{
 
                         }
 
+                        continue;
+
                     }
 
+                    continue;
+
                 }
+
+                continue;
 
             }
 

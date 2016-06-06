@@ -5,6 +5,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import xyz.imdafatboss.uhcgrounds.Home;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
+import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
 import xyz.imdafatboss.uhcgrounds.utils.Utils;
 
 public class KitManager {
@@ -64,6 +65,18 @@ public class KitManager {
         config.set("inventory", invString);
         config.set("armor", armString);
         cfg.save();
+
+    }
+
+    public void giveKit(UHCPlayer player){
+
+        player.getPlayer().getInventory().clear();
+        for(ItemStack is : this.getKit().getInventory()){
+
+            player.getPlayer().getInventory().addItem(is);
+
+        }
+        player.getPlayer().getInventory().setArmorContents(this.getKit().getArmor());
 
     }
 

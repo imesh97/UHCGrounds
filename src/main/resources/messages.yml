@@ -1,0 +1,44 @@
+#
+# ------------------------------ #
+#
+#  UHCGrounds v1.0
+#  The lastest minigame, that runs like a feather on your server.
+#  (c) IMDAFATBOSS
+#
+# ------------------------------ #
+#
+# MESSAGES TUTORIAL
+#
+# saved-kit: WHEN PLAYER SAVES THE DEFAULT KIT.
+# statsgui-title: THE STATS GUI TITLE - %player% = Player's name.
+# player-hasnt-played: MESSAGE WHEN A PLAYER HAS NOT PLAYED.
+# player-not-exist: PLAYER DOES NOT EXIST/HASN OT JOINED SERVER.
+# enderpearl-cooldown-msg: ENDERPEARL COOLDOWN MESSAGE - %time% = Time left.
+# already-in-game: WHEN A PLAYER TRIES TO JOIN A NEW GAME WHILE IN-GAME.
+# kicked-higher-rank: WHEN PLAYER IS KICKED ONCE A HIGHER-RANK PLAYER JOINS.
+# joined-game-lobby: WHEN PLAYER JOINS A LOBBY.
+# you-set-lobby: WHEN PLAYER SETS THE LOBBY'S LOCATION.
+# game-started: WHEN A GAME HAS STARTED.
+# you-set-spawn: WHEN PLAYER SETS THE SPAWN LOCATION.
+# you-won: WHEN PLAYER WINS A GAME.
+# player-left: WHEN PLAYER LEAVES THE GAME BY DISCONNECTION, TELEPORTATION, ETC - %player% = Player's name.
+# player-death: WHEN A PLAYER KILLS ANOTHER PLAYER - %killer% = Killer's name && %victim% = Victim's name.
+# total-left: TOTAL NUMBER OF PLAYERS LEFT - %now% = Players left && %total% = Starting amount.
+# currently-grace: WHEN A PLAYER ATTACKS SOMEONE IN GRACE PERIOD.
+
+saved-kit: '&7You have saved the kit.'
+statsgui-title: '&6&l%player% &e- &1Statistics'
+player-hasnt-played: '&cThis player has not played a game of UHG.'
+player-not-exist: '&cThis player does not exist or has not been on this server.'
+enderpearl-cooldown-msg: '&cYou must wait &7%time% &cto use your &3enderpearl.'
+already-in-game: '&cYou are already in-game!'
+kicked-higher-rank: '&7You were kicked from the game because a player with a higher rank joined.'
+joined-game-lobby: '&aYou joined the game's lobby.'
+you-set-lobby: '&aYou have set the lobby location.'
+game-started: '&7The game has &a&lSTARTED&7. &b&lGOOD LUCK!'
+you-set-spawn: '&aYou have set the spawn location.'
+you-won: '&a&lYou have won the game! Congratulations!'
+player-left: '&7%player% left the game.'
+player-death: '&a&l%killer% &7killed &c&l%victim%&7!'
+total-left: '&b(&e%now%&b/&6%total%&b) &7players remain.'
+currently-grace: '&cIt is currently grace period. &4No attacking &cother players.'

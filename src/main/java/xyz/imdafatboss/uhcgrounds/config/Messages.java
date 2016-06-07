@@ -128,7 +128,7 @@ public class Messages {
 
     public String getPlayersLeft(int first, int now){
 
-        String s = Msg.translate(this.getConfig().getString("players-left"));
+        String s = Msg.translate(this.getConfig().getString("total-left"));
         String s1 = s.replaceAll("%total%", first + "").toString();
         String s2 = s1.replaceAll("%now%", now + "").toString();
 

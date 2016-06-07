@@ -33,7 +33,7 @@ public class Spawn {
 
         fm = new FileManager(plugin);
 
-        this.spawn = Locations.stringToLocation(fm.getConfig("config.yml").get().getString("spawn-loc"));
+        this.spawn = Locations.stringToLocation(fm.getConfig("data.yml").get().getString("spawn-loc"));
 
     }
 
@@ -41,7 +41,7 @@ public class Spawn {
 
         fm = new FileManager(plugin);
 
-        fm.getConfig("config.yml").get().set("spawn-loc", Locations.locationToString(this.spawn));
+        fm.getConfig("data.yml").get().set("spawn-loc", Locations.locationToString(this.spawn));
 
     }
 

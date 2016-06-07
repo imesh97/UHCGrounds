@@ -33,7 +33,7 @@ public class Lobby {
 
         fm = new FileManager(plugin);
 
-        this.spawn = Locations.stringToLocation(fm.getConfig("config.yml").get().getString("lobby-spawn"));
+        this.spawn = Locations.stringToLocation(fm.getConfig("data.yml").get().getString("lobby-spawn"));
 
     }
 
@@ -41,7 +41,7 @@ public class Lobby {
 
         fm = new FileManager(plugin);
 
-        fm.getConfig("config.yml").get().set("lobby-spawn", Locations.locationToString(this.spawn));
+        fm.getConfig("data.yml").get().set("lobby-spawn", Locations.locationToString(this.spawn));
 
     }
 

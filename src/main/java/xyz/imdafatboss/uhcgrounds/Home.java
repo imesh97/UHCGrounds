@@ -61,7 +61,7 @@ public class Home extends JavaPlugin implements Listener{
                 Game game = new Game(ArenaManager.getArena(newArena.getID()));
                 GameManager.addGame(game);
             }
-        }, 40L);
+        }, 60L);
 
         for(Player p : Bukkit.getOnlinePlayers()){
 

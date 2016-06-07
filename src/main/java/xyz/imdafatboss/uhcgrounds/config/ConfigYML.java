@@ -68,9 +68,9 @@ public class ConfigYML {
 
     }
 
-    public int getEnderpearlCooldown(){
+    public boolean getRegen(){
 
-        return this.getConfig().getInt("enderpearl-cooldown");
+        return this.getConfig().getBoolean("regen");
 
     }
 

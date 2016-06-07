@@ -13,7 +13,6 @@ public class Arena {
     Home plugin;
     FileManager fm;
 
-    private final FileManager.Config config;
     private final int id;
     private List<UHCPlayer> players;
     private UHCPlayer winner;
@@ -24,17 +23,17 @@ public class Arena {
     public Arena(int id, List<UHCPlayer> players){
 
         fm = new FileManager(plugin);
-        this.config = fm.getConfig("config.yml");
+        FileManager.Config config = fm.getConfig("config.yml");
 
         this.id = id;
         this.players = players;
         this.winner = null;
         this.world = null;
 
-        if(this.config.get().isConfigurationSection("max-players")  && this.config.get().isConfigurationSection("min-players")){
+        if(config.get().isConfigurationSection("max-players")  && config.get().isConfigurationSection("min-players")){
 
-            this.maxplayers = this.config.get().getInt("max-players");
-            this.minplayers = this.config.get().getInt("min-players");
+            this.maxplayers = config.get().getInt("max-players");
+            this.minplayers = config.get().getInt("min-players");
 
         }
 

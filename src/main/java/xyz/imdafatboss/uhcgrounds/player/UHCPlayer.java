@@ -28,6 +28,7 @@ public class UHCPlayer {
 
     public UHCPlayer(Player player){
 
+        plugin = new Home();
         fm = new FileManager(plugin);
         FileManager.Config config = fm.getConfig("data.yml");
 

@@ -29,6 +29,7 @@ public class Game {
     private boolean grace;
     private List<UHCPlayer> players;
     private UHCPlayer winner;
+    private int first;
 
     public Game(Arena arena){
 
@@ -43,6 +44,7 @@ public class Game {
         this.grace = false;
         this.players = null;
         this.winner = null;
+        this.first = 0;
 
     }
 
@@ -156,6 +158,7 @@ public class Game {
         }
 
         this.setOn(true);
+        this.first = this.getPlayers().size();
 
         Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 

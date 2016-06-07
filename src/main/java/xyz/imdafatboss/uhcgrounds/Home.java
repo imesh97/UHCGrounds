@@ -7,6 +7,8 @@ import xyz.imdafatboss.uhcgrounds.config.FileManager;
 import xyz.imdafatboss.uhcgrounds.events.Events;
 import xyz.imdafatboss.uhcgrounds.game.Lobby;
 import xyz.imdafatboss.uhcgrounds.kits.KitManager;
+import xyz.imdafatboss.uhcgrounds.player.PlayerManager;
+import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
 
 public class Home extends JavaPlugin implements Listener{
 
@@ -44,6 +46,22 @@ public class Home extends JavaPlugin implements Listener{
 
         km.saveKit();
         lobby.saveData();
+        this.savePlayerData();
+
+    }
+
+    public void savePlayerData(){
+
+        for(UHCPlayer p : PlayerManager.getPlayers()){
+
+            String path = p.getUUID().toString() + ".";
+
+            fm.getConfig("data.yml").get().set(path + "wins", p.getWins());
+            fm.getConfig("data.yml").get().set(path + "kills", p.getKills());
+            fm.getConfig("data.yml").get().set(path + "deaths", p.getDeaths());
+            fm.getConfig("data.yml").save();
+
+        }
 
     }
 

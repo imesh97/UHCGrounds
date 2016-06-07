@@ -18,6 +18,8 @@ public class CommandManager
         commands.add(new SaveKitCmd(plugin));
         commands.add(new StatsGuiCmd(plugin));
         commands.add(new SetLobbyCmd(plugin));
+        commands.add(new SetSpawnCmd(plugin));
+        commands.add(new GameJoinCmd(plugin));
     }
 
     public static CommandFactory getCommand(String name)

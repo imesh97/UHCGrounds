@@ -57,16 +57,18 @@ public class KitManager {
         FileManager.Config cfg = fm.getConfig("kit.yml");
 
 
-        if(this.getKit().getInventory() != null && this.getKit().getArmor() != null) {
+        if(this.getKit().getInventory() != null) {
             Inventory inv = this.getKit().getInventory();
-            ItemStack[] armor = this.getKit().getArmor();
+            if(this.getKit().getArmor() != null) {
+                ItemStack[] armor = this.getKit().getArmor();
 
-            String invString = Utils.halfInv(inv);
-            String armString = Utils.armorInv(armor);
+                String invString = Utils.halfInv(inv);
+                String armString = Utils.armorInv(armor);
 
-            config.set("inventory", invString);
-            config.set("armor", armString);
-            cfg.save();
+                config.set("inventory", invString);
+                config.set("armor", armString);
+                cfg.save();
+            }
         }
 
     }

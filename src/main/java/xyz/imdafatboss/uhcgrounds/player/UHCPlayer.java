@@ -14,11 +14,16 @@ import java.util.UUID;
 public class UHCPlayer {
 
     Home plugin;
+    public UHCPlayer(Home instance){
+
+        this.plugin = instance;
+
+    }
     FileManager fm;
 
-    private final Player player;
-    private final String name;
-    private final UUID uuid;
+    private Player player;
+    private String name;
+    private UUID uuid;
     private int wins;
     private int kills;
     private int deaths;
@@ -28,7 +33,6 @@ public class UHCPlayer {
 
     public UHCPlayer(Player player){
 
-        plugin = new Home();
         fm = new FileManager(plugin);
         FileManager.Config config = fm.getConfig("data.yml");
 

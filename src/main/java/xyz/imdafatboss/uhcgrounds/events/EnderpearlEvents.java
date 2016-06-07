@@ -1,8 +1,10 @@
 package xyz.imdafatboss.uhcgrounds.events;
 
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.inventory.ItemStack;
 import xyz.imdafatboss.uhcgrounds.Home;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
 import xyz.imdafatboss.uhcgrounds.config.Messages;
@@ -55,6 +57,7 @@ public class EnderpearlEvents implements Listener{
                 String s2 = Msg.translate(s1);
 
                 player.getPlayer().sendMessage(msg.prefix() + s2);
+                player.getPlayer().getInventory().addItem(new ItemStack(Material.ENDER_PEARL));
 
             }
 

@@ -15,34 +15,15 @@ public class Arena {
 
     private final int id;
     private List<UHCPlayer> players;
-    private UHCPlayer winner;
-    private final int maxplayers;
-    private final int minplayers;
     private World world;
 
     public Arena(int id, List<UHCPlayer> players){
 
         fm = new FileManager(plugin);
-        FileManager.Config config = fm.getConfig("config.yml");
 
         this.id = id;
         this.players = players;
-        this.winner = null;
         this.world = null;
-
-        if(config.get().isConfigurationSection("max-players")  && config.get().isConfigurationSection("min-players")){
-
-            this.maxplayers = config.get().getInt("max-players");
-            this.minplayers = config.get().getInt("min-players");
-
-        }
-
-        else{
-
-            this.maxplayers = 12;
-            this.minplayers = 6;
-
-        }
 
     }
 
@@ -61,18 +42,6 @@ public class Arena {
     public void setPlayers(List<UHCPlayer> list){
 
         this.players = list;
-
-    }
-
-    public UHCPlayer getWinner(){
-
-        return this.winner;
-
-    }
-
-    public void setWinner(UHCPlayer player){
-
-        this.winner = player;
 
     }
 

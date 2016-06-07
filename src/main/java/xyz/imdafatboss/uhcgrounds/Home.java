@@ -49,14 +49,19 @@ public class Home extends JavaPlugin implements Listener{
         spawn.loadData();
         this.registerCommands();
 
-        Arena newArena = new Arena(1, null);
-        ArenaManager.addArena(newArena)
-                .makeWorld("temp1");
-        ArenaManager.getArena(newArena.getID())
-                .setWorld(Bukkit.getWorld("temp1"));
+        Bukkit.getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
+            @Override
+            public void run() {
+                Arena newArena = new Arena(1, null);
+                ArenaManager.addArena(newArena)
+                        .makeWorld("temp1");
+                ArenaManager.getArena(newArena.getID())
+                        .setWorld(Bukkit.getWorld("temp1"));
 
-        Game game = new Game(ArenaManager.getArena(newArena.getID()));
-        GameManager.addGame(game);
+                Game game = new Game(ArenaManager.getArena(newArena.getID()));
+                GameManager.addGame(game);
+            }
+        }, 40L);
 
         for(Player p : Bukkit.getOnlinePlayers()){
 

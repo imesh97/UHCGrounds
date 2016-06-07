@@ -57,6 +57,7 @@ public class PlayerWinEvent implements Listener{
 
                                 player.getCurrentGame().setWinner(player);
                                 p.sendMessage(msg.prefix() + msg.getYouWon());
+                                player.setInGame(false);
 
                             }
 

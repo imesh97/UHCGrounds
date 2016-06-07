@@ -16,7 +16,6 @@ public class UHCPlayer {
     Home plugin;
     FileManager fm;
 
-    private final YamlConfiguration config;
     private final Player player;
     private final String name;
     private final UUID uuid;
@@ -30,7 +29,7 @@ public class UHCPlayer {
     public UHCPlayer(Player player){
 
         fm = new FileManager(plugin);
-        config = fm.getConfig("data.yml").get();
+        FileManager.Config config = fm.getConfig("data.yml");
 
         this.player = player;
         this.name = player.getName();
@@ -39,12 +38,12 @@ public class UHCPlayer {
         this.enderpearl = System.currentTimeMillis();
         this.game = null;
 
-        if(config.isConfigurationSection(player.getUniqueId().toString())){
+        if(config.get().isConfigurationSection(player.getUniqueId().toString())){
 
             String path = player.getUniqueId().toString() + ".";
-            this.wins = config.getInt(path + "wins");
-            this.kills = config.getInt(path + "kills");
-            this.deaths = config.getInt(path + "deaths");
+            this.wins = config.get().getInt(path + "wins");
+            this.kills = config.get().getInt(path + "kills");
+            this.deaths = config.get().getInt(path + "deaths");
 
         }
 

@@ -6,8 +6,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import xyz.imdafatboss.uhcgrounds.Home;
+import xyz.imdafatboss.uhcgrounds.arena.Arena;
+import xyz.imdafatboss.uhcgrounds.arena.ArenaManager;
 import xyz.imdafatboss.uhcgrounds.config.ConfigYML;
 import xyz.imdafatboss.uhcgrounds.config.Messages;
+import xyz.imdafatboss.uhcgrounds.game.Game;
+import xyz.imdafatboss.uhcgrounds.game.GameManager;
 import xyz.imdafatboss.uhcgrounds.game.Spawn;
 import xyz.imdafatboss.uhcgrounds.player.PlayerManager;
 import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
@@ -66,6 +70,15 @@ public class PlayerWinEvent implements Listener{
                     }
 
                 }, 40L);
+
+                Arena newArena = new Arena(ArenaManager.getArenas().size(), null);
+                ArenaManager.addArena(newArena)
+                    .makeWorld("temp" + newArena.getID());
+                ArenaManager.getArena(newArena.getID())
+                        .setWorld(Bukkit.getWorld("temp" + newArena.getID()));
+
+                Game newGame = new Game(ArenaManager.getArena(newArena.getID()));
+                GameManager.addGame(newGame);
 
             }
 

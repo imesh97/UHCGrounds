@@ -35,12 +35,11 @@ public class Home extends JavaPlugin implements Listener{
         lobby = new Lobby(this);
         spawn = new Spawn(this);
 
-
         fm.getConfig("config.yml").saveDefaultConfig();
         fm.getConfig("data.yml").saveDefaultConfig();
         fm.getConfig("messages.yml").saveDefaultConfig();
         fm.getConfig("kit.yml").saveDefaultConfig();
-        
+
         new CommandManager(this);
 
         km.updateKit();

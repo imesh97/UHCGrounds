@@ -118,8 +118,8 @@ public class FileManager {
          * @return
          */
         public Config reload() {
-            if (file == null){
-                this.file = new File(plugin.getDataFolder(), this.name); }
+            if (file == null)
+                this.file = new File(plugin.getDataFolder(), this.name);
 
             this.config = YamlConfiguration.loadConfiguration(file);
 

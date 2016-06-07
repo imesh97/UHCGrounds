@@ -4,19 +4,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-import xyz.imdafatboss.uhcgrounds.arena.Arena;
-import xyz.imdafatboss.uhcgrounds.arena.ArenaManager;
-import xyz.imdafatboss.uhcgrounds.cmd.api.CommandFactory;
-import xyz.imdafatboss.uhcgrounds.cmd.api.CommandManager;
+import xyz.imdafatboss.uhcgrounds.arena.*;
+import xyz.imdafatboss.uhcgrounds.cmd.api.*;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
 import xyz.imdafatboss.uhcgrounds.events.Events;
-import xyz.imdafatboss.uhcgrounds.game.Game;
-import xyz.imdafatboss.uhcgrounds.game.GameManager;
-import xyz.imdafatboss.uhcgrounds.game.Lobby;
-import xyz.imdafatboss.uhcgrounds.game.Spawn;
+import xyz.imdafatboss.uhcgrounds.game.*;
 import xyz.imdafatboss.uhcgrounds.kits.KitManager;
-import xyz.imdafatboss.uhcgrounds.player.PlayerManager;
-import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
+import xyz.imdafatboss.uhcgrounds.player.*;
 
 public class Home extends JavaPlugin implements Listener{
 
@@ -28,7 +22,7 @@ public class Home extends JavaPlugin implements Listener{
 
     @Override
     public void onEnable(){
-        
+
         fm.getConfig("config.yml").saveDefaultConfig();
         fm.getConfig("data.yml").saveDefaultConfig();
         fm.getConfig("messages.yml").saveDefaultConfig();

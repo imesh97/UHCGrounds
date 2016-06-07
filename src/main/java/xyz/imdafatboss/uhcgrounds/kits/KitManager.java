@@ -68,8 +68,12 @@ public class KitManager {
                 config.set("inventory", invString);
                 config.set("armor", armString);
                 cfg.save();
+                return;
             }
+            return;
         }
+
+        return;
 
     }
 

@@ -1,7 +1,6 @@
 package xyz.imdafatboss.uhcgrounds.player;
 
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import xyz.imdafatboss.uhcgrounds.Home;

@@ -32,7 +32,7 @@ public class Arena {
         this.winner = null;
         this.world = null;
 
-        if(this.config.isConfigurationSection("max-players")){
+        if(this.config.isConfigurationSection("max-players")  && this.config.isConfigurationSection("min-players")){
 
             this.maxplayers = this.config.getInt("max-players");
             this.minplayers = this.config.getInt("min-players");

@@ -35,6 +35,29 @@
 # regen: false SHOULD REGENERATION BE ON?
 #
 # grace: 60 THE NUMBER OF SECONDS IN THE GRACE PERIOD
+#
+#statsgui: EDIT ALL OF THE STATS GUI'S CONTENTS
+#     kills:
+#         name: '&a&lKILLS'
+#         item: 273
+#         slot: 11
+#         lore:
+#             - '&7Amount: &a%kills%'
+#             - '-------------'
+#     wins:
+#             name: '&6&lWINS'
+#             item: 145
+#             slot: 13
+#             lore:
+#                 - '&7Amount: &6%wins%'
+#                 - '-------------'
+#     deaths:
+#                 name: '&4&lDEATHS'
+#                 item: 57
+#                 slot: 15
+#                 lore:
+#                     - '&7Amount: &4%deaths%'
+#                     - '-------------'
 
 
 prefix: '&c&lServer &7>'
@@ -54,3 +77,26 @@ win-commands:
 regen: false
 
 grace: 60
+
+statsgui:
+    kills:
+        name: '&a&lKILLS'
+        item: 273
+        slot: 11
+        lore:
+            - '&7Amount: &a%kills%'
+            - '-------------'
+    wins:
+            name: '&6&lWINS'
+            item: 145
+            slot: 13
+            lore:
+                - '&7Amount: &6%wins%'
+                - '-------------'
+    deaths:
+                name: '&4&lDEATHS'
+                item: 57
+                slot: 15
+                lore:
+                    - '&7Amount: &4%deaths%'
+                    - '-------------'

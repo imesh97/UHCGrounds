@@ -41,7 +41,8 @@ public class EnderpearlEvents implements Listener{
 
                 long now = System.currentTimeMillis();
                 int sec = fm.getConfig("config.yml").get().getInt("enderpearl-cooldown");
-                long time = sec * 1000L;
+                long t = sec * 1000L;
+                long time = now + t;
 
                 player.setEnderpearl(time);
 

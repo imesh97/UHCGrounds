@@ -1,0 +1,56 @@
+#
+# ------------------------------ #
+#
+#  UHCGrounds v1.0
+#  The lastest minigame, that runs like a feather on your server.
+#  (c) IMDAFATBOSS
+#
+# ------------------------------ #
+#
+# COMMAND : PERMISSION - INFO
+#
+# uhcjoin : NO PERMISSION - Join a game.
+# savekit : eximus.uhcgrounds.savekit - Save the default kit from your inventory.
+# uhgsetspawn : eximus.uhcgrounds.setspawn - Set the spawn where players will be teleported back after a game.
+# setlobby : eximus.uhcgrounds.setlobby - Set the waiting lobby.
+# stats : NO PERMISSION - View the stats of yourself or another player.
+#
+# ------------------------------ #
+# CONFIG TUTORIAL
+#
+# prefix: '&c&lServer &7>' THE PREFIX FOR ALL MESSAGES.
+#
+# max-players: 12 THE MAXIMUM NUMBER OF PLAYERS PER-GAME.
+#
+# min-players: 6 THE MINIMUM NUMBER OF PLAYERS TO START A GAME.
+#
+# scatter:
+#    radius: 100 THE RADIUS IN BLOCKS OF WHICH TO SCATTER PLAYERS.
+#    distance: 25 THE MINIMUM DISTANCE BETWEEN EACH PLAYER AFTER SCATTERING.
+#
+# win-commands: THE COMMANDS RUN AFTER A PLAYER WINS. %player% = winning player.
+#    - 'eco give %player% 100'
+#    - 'broadcast &b&l%player% &7won a round of &aUHG'
+#
+# regen: false SHOULD REGENERATION BE ON?
+#
+# grace: 60 THE NUMBER OF SECONDS IN THE GRACE PERIOD
+
+
+prefix: '&c&lServer &7>'
+
+max-players: 12
+
+min-players: 6
+
+scatter:
+    radius: 100
+    distance: 25
+
+win-commands:
+    - 'eco give %player% 100'
+    - 'broadcast &b&l%player% &7won a round of &aUHG'
+
+regen: false
+
+grace: 60

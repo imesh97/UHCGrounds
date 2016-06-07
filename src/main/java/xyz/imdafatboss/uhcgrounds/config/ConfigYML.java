@@ -68,4 +68,10 @@ public class ConfigYML {
 
     }
 
+    public int getEnderpearlCooldown(){
+
+        return this.getConfig().getInt("enderpearl-cooldown");
+
+    }
+
 }

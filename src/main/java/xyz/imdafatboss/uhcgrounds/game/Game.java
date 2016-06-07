@@ -11,6 +11,7 @@ import xyz.imdafatboss.uhcgrounds.kits.KitManager;
 import xyz.imdafatboss.uhcgrounds.player.PlayerManager;
 import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
 import xyz.imdafatboss.uhcgrounds.utils.Locations;
+import xyz.imdafatboss.uhcgrounds.utils.XPLevels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,6 +119,16 @@ public class Game {
 
     }
 
+    public void giveXP(){
+
+        for(UHCPlayer p : this.getPlayers()){
+
+            XPLevels.setLevel(p.getPlayer(), 25);
+
+        }
+
+    }
+
     public void start(){
 
         List<UHCPlayer> started = new ArrayList<UHCPlayer>();
@@ -166,6 +177,7 @@ public class Game {
             public void run() {
 
                 giveKit();
+                giveXP();
 
             }
 

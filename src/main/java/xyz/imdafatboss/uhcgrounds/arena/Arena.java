@@ -17,12 +17,12 @@ public class Arena {
     private List<UHCPlayer> players;
     private World world;
 
-    public Arena(int id, List<UHCPlayer> players){
+    public Arena(int id){
 
         fm = new FileManager(plugin);
 
         this.id = id;
-        this.players = players;
+        this.players = null;
         this.world = null;
 
     }

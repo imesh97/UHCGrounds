@@ -52,7 +52,7 @@ public class Home extends JavaPlugin implements Listener{
         Bukkit.getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
             @Override
             public void run() {
-                Arena newArena = new Arena(1, null);
+                Arena newArena = new Arena(1);
                 ArenaManager.addArena(newArena)
                         .makeWorld("temp1");
                 ArenaManager.getArena(newArena.getID())

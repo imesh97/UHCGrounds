@@ -72,7 +72,7 @@ public class PlayerWinEvent implements Listener{
 
                 }, 40L);
 
-                Arena newArena = new Arena(ArenaManager.getArenas().size(), null);
+                Arena newArena = new Arena(ArenaManager.getArenas().size());
                 ArenaManager.addArena(newArena)
                     .makeWorld("temp" + newArena.getID());
                 ArenaManager.getArena(newArena.getID())

@@ -36,8 +36,7 @@ public class StatMessageEvent implements Listener{
                 if(p.getCurrentGame() == k.getCurrentGame()){
 
                     for(final UHCPlayer p1 : p.getCurrentGame().getPlayers()){
-
-                        p1.getPlayer().sendMessage(msg.prefix() + msg.getPlayerDied(k, p));
+                        
                         Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 
                             @Override

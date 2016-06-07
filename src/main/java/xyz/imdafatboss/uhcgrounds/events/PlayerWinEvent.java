@@ -49,6 +49,7 @@ public class PlayerWinEvent implements Listener{
 
                         if(player.getCurrentGame().getSize() == 1){
 
+                            p.getInventory().clear();
                             for(String s : cfg.winCommands(player)){
 
                                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), s);

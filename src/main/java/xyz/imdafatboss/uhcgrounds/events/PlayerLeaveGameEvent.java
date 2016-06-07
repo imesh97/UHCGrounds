@@ -40,6 +40,7 @@ public class PlayerLeaveGameEvent implements Listener{
                 World world = p.getCurrentGame().getArena().getWorld();
                 if(e.getTo().getWorld() == world){
 
+                    player.getInventory().clear();
                     player.teleport(spawn.getSpawn());
 
                     for(final UHCPlayer p1 : p.getCurrentGame().getPlayers()){
@@ -87,6 +88,8 @@ public class PlayerLeaveGameEvent implements Listener{
 
             UHCPlayer p = PlayerManager.getPlayer(player);
             if(p.isInGame()){
+
+                player.getInventory().clear();
 
                 for(final UHCPlayer p1 : p.getCurrentGame().getPlayers()){
 

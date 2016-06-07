@@ -42,6 +42,7 @@ public class DeathEvent implements Listener{
 
                 if (p.isInGame()) {
 
+                    player.getInventory().clear();
                     player.teleport(spawn.getSpawn());
 
                     for (final UHCPlayer p1 : p.getCurrentGame().getPlayers()) {

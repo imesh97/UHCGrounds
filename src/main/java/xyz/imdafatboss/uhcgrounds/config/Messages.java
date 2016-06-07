@@ -2,6 +2,7 @@ package xyz.imdafatboss.uhcgrounds.config;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import xyz.imdafatboss.uhcgrounds.Home;
+import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
 import xyz.imdafatboss.uhcgrounds.utils.Msg;
 
 public class Messages {
@@ -103,6 +104,35 @@ public class Messages {
     public String getYouWon(){
 
         return Msg.translate(this.getConfig().getString("you-won"));
+
+    }
+
+    public String getPlayerLeft(UHCPlayer player){
+
+        String s =  Msg.translate(this.getConfig().getString("player-left"));
+        String s1 = s.replaceAll("%player%", player.getName()).toString();
+
+        return s1;
+
+    }
+
+    public String getPlayerDied(UHCPlayer killer, UHCPlayer victim){
+
+        String s = Msg.translate(this.getConfig().getString("player-death"));
+        String s1 = s.replaceAll("%killer%", killer.getName()).toString();
+        String s2 = s1.replaceAll("%victim%", victim.getName()).toString();
+
+        return s2;
+
+    }
+
+    public String getPlayersLeft(int first, int now){
+
+        String s = Msg.translate(this.getConfig().getString("players-left"));
+        String s1 = s.replaceAll("%total%", first + "").toString();
+        String s2 = s1.replaceAll("%now%", now + "").toString();
+
+        return s2;
 
     }
 

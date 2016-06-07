@@ -27,7 +27,7 @@ public class Game {
     private final Arena arena;
     private boolean on;
     private boolean lobby;
-    private boolean grace;
+    private long grace;
     private List<UHCPlayer> players;
     private UHCPlayer winner;
     private int first;
@@ -42,7 +42,7 @@ public class Game {
         this.arena = arena;
         this.on = false;
         this.lobby = true;
-        this.grace = false;
+        this.grace = System.currentTimeMillis();
         this.players = null;
         this.winner = null;
         this.first = 0;
@@ -165,6 +165,12 @@ public class Game {
             }
 
             player.getPlayer().sendMessage(msg.prefix() + msg.getStarted());
+
+            int sec = cfg.getGrace();
+            long t = sec * 1000L;
+            long time = System.currentTimeMillis() + t;
+
+            this.setGrace(time);
 
         }
 
@@ -357,6 +363,18 @@ public class Game {
         }
 
         return false;
+
+    }
+
+    public boolean isGrace(long time){
+
+        return System.currentTimeMillis() < this.grace;
+
+    }
+
+    public void setGrace(long time){
+
+        this.grace = time;
 
     }
 

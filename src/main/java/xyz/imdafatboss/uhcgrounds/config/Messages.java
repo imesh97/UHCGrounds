@@ -136,4 +136,10 @@ public class Messages {
 
     }
 
+    public String getCurrentlyGrace(){
+
+        return Msg.translate(this.getConfig().getString("currently-grace"));
+
+    }
+
 }

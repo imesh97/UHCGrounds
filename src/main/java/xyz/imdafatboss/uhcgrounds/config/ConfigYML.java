@@ -74,4 +74,10 @@ public class ConfigYML {
 
     }
 
+    public int getGrace(){
+
+        return this.getConfig().getInt("grace");
+
+    }
+
 }

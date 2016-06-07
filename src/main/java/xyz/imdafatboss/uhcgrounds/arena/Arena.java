@@ -1,7 +1,6 @@
 package xyz.imdafatboss.uhcgrounds.arena;
 
 import org.bukkit.World;
-import org.bukkit.configuration.file.YamlConfiguration;
 import xyz.imdafatboss.uhcgrounds.Home;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
 import xyz.imdafatboss.uhcgrounds.player.*;
@@ -14,7 +13,7 @@ public class Arena {
     Home plugin;
     FileManager fm;
 
-    private final YamlConfiguration config;
+    private final FileManager.Config config;
     private final int id;
     private List<UHCPlayer> players;
     private UHCPlayer winner;
@@ -25,17 +24,17 @@ public class Arena {
     public Arena(int id, List<UHCPlayer> players){
 
         fm = new FileManager(plugin);
-        this.config = fm.getConfig("config.yml").get();
+        this.config = fm.getConfig("config.yml");
 
         this.id = id;
         this.players = players;
         this.winner = null;
         this.world = null;
 
-        if(this.config.isConfigurationSection("max-players")  && this.config.isConfigurationSection("min-players")){
+        if(this.config.get().isConfigurationSection("max-players")  && this.config.get().isConfigurationSection("min-players")){
 
-            this.maxplayers = this.config.getInt("max-players");
-            this.minplayers = this.config.getInt("min-players");
+            this.maxplayers = this.config.get().getInt("max-players");
+            this.minplayers = this.config.get().getInt("min-players");
 
         }
 

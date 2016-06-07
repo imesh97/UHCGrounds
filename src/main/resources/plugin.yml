@@ -1,0 +1,17 @@
+name: UHCGrounds
+main: xyz.imdafatboss.uhcgrounds.Home
+version: 1.0
+author: imdafatboss
+description: A custom minigame created by ImDaFatBoss
+
+commands:
+    uhgjoin:
+        description: Join a UHG game
+    savekit:
+        description: Save the kit to be used for all UHG matches
+    setlobby:
+        description: Set the lobby location
+    uhgsetspawn:
+        description: Set the spawn location
+    stats:
+        description: Check the stats of yourself or another player

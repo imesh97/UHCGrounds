@@ -20,6 +20,12 @@ public class Events {
         pm.registerEvents(new GoldenHeadEvents(jp), plugin);
         pm.registerEvents(new EnderpearlEvents(jp), plugin);
         pm.registerEvents(new StatsEvents(jp), plugin);
+        pm.registerEvents(new DeathEvent(jp), plugin);
+        pm.registerEvents(new MakeUHCPlayerEvent(jp), plugin);
+        pm.registerEvents(new PlayerLeaveGameEvent(jp), plugin);
+        pm.registerEvents(new PlayerWinEvent(jp), plugin);
+        pm.registerEvents(new RegenEvent(jp), plugin);
+        pm.registerEvents(new StatMessageEvent(jp), plugin);
 
     }
 

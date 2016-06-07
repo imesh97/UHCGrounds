@@ -29,18 +29,18 @@ public class Home extends JavaPlugin implements Listener{
     @Override
     public void onEnable(){
 
-
-        fm.getConfig("config.yml").saveDefaultConfig();
-        fm.getConfig("data.yml").saveDefaultConfig();
-        fm.getConfig("messages.yml").saveDefaultConfig();
-        fm.getConfig("kit.yml").saveDefaultConfig();
-
         this.getLogger().info("Created by imdafatboss");
         km = new KitManager(this);
         evt = new Events(this);
         lobby = new Lobby(this);
         spawn = new Spawn(this);
 
+
+        fm.getConfig("config.yml").saveDefaultConfig();
+        fm.getConfig("data.yml").saveDefaultConfig();
+        fm.getConfig("messages.yml").saveDefaultConfig();
+        fm.getConfig("kit.yml").saveDefaultConfig();
+        
         new CommandManager(this);
 
         km.updateKit();

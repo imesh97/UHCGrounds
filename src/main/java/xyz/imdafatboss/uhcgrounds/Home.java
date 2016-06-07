@@ -37,6 +37,7 @@ public class Home extends JavaPlugin implements Listener{
 
         fm.getConfig("config.yml").saveDefaultConfig();
         fm.getConfig("data.yml").saveDefaultConfig();
+        fm.getConfig("messages.yml").saveDefaultConfig();
         fm.getConfig("kit.yml").saveDefaultConfig();
 
         km.updateKit();

@@ -9,6 +9,7 @@ import xyz.imdafatboss.uhcgrounds.arena.Arena;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
 import xyz.imdafatboss.uhcgrounds.game.Game;
 
+import java.util.Set;
 import java.util.UUID;
 
 public class UHCPlayer {
@@ -43,7 +44,10 @@ public class UHCPlayer {
         this.enderpearl = System.currentTimeMillis();
         this.game = null;
 
-        if(config.get().isConfigurationSection(player.getUniqueId().toString())){
+        Set<String> sect = config.get().contains(player.getUniqueId().toString())
+                ? config.get().getConfigurationSection(player.getUniqueId().toString()).getKeys(false) : null;
+
+        if(sect != null && !sect.isEmpty()){
 
             String path = player.getUniqueId().toString() + ".";
             this.wins = config.get().getInt(path + "wins");

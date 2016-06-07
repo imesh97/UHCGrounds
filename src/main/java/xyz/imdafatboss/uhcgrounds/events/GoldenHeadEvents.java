@@ -25,22 +25,12 @@ public class GoldenHeadEvents implements Listener{
     public void onSpawnGoldenHead(PlayerDeathEvent e){
 
         Player p = e.getEntity();
-        Player k = e.getEntity().getKiller();
-        if(PlayerManager.isUHCPlayer(p)){
 
-            if(PlayerManager.isUHCPlayer(k)) {
+        ItemStack is = GoldenHead.getGoldenHead();
+        World world = p.getWorld();
+        Location loc = p.getLocation();
 
-                UHCPlayer player = PlayerManager.getPlayer(p);
-
-                ItemStack is = GoldenHead.getGoldenHead();
-                World world = player.getPlayer().getWorld();
-                Location loc = player.getPlayer().getLocation();
-
-                world.dropItem(loc, is);
-
-            }
-
-        }
+        world.dropItem(loc, is);
 
     }
 

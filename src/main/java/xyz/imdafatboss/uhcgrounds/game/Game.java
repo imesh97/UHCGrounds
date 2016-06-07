@@ -173,6 +173,12 @@ public class Game {
 
     }
 
+    public int getFirst(){
+
+        return this.first;
+
+    }
+
     public void hidePlayers(UHCPlayer player){
 
         for(UHCPlayer p : PlayerManager.getPlayers()){

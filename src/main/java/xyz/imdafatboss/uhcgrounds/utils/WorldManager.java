@@ -2,32 +2,11 @@ package xyz.imdafatboss.uhcgrounds.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.World;
-import org.bukkit.WorldCreator;
 
 import java.io.*;
 import java.util.*;
 
 public class WorldManager {
-
-    public static void copyWorlds(String source, String target){
-
-        try {
-
-            Bukkit.createWorld(new WorldCreator(target));
-
-            World s = Bukkit.getWorld(source);
-            if(s != null) {
-
-                File sourceFolder = s.getWorldFolder();
-                File targetFolder = new File(Bukkit.getWorldContainer(), target);
-
-                copyWorld(sourceFolder, targetFolder);
-
-            }
-
-        }catch (Exception e){ }
-
-    }
 
     public static void copyWorld(File source, File target) {
         try {

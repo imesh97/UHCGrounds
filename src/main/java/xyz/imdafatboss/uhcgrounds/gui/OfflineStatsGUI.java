@@ -8,7 +8,6 @@ import org.bukkit.inventory.ItemStack;
 import xyz.imdafatboss.uhcgrounds.Home;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
 import xyz.imdafatboss.uhcgrounds.config.Messages;
-import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
 import xyz.imdafatboss.uhcgrounds.utils.ItemBuilder;
 import xyz.imdafatboss.uhcgrounds.utils.Msg;
 

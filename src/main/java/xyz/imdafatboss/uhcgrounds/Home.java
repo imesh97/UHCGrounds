@@ -46,14 +46,26 @@ public class Home extends JavaPlugin implements Listener{
         Bukkit.getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
             @Override
             public void run() {
-                Arena newArena = new Arena(1);
-                ArenaManager.addArena(newArena)
-                        .makeWorld("temp1");
-                ArenaManager.getArena(newArena.getID())
-                        .setWorld(Bukkit.getWorld("temp1"));
 
-                Game game = new Game(ArenaManager.getArena(newArena.getID()));
-                GameManager.addGame(game);
+                if(Bukkit.getWorld("template") != null) {
+
+                    Arena newArena = new Arena(1);
+                    ArenaManager.addArena(newArena)
+                            .makeWorld("temp1");
+                    ArenaManager.getArena(newArena.getID())
+                            .setWorld(Bukkit.getWorld("temp1"));
+
+                    Game game = new Game(ArenaManager.getArena(newArena.getID()));
+                    GameManager.addGame(game);
+                    Debugger.debug("A new game has been created.");
+
+                }
+
+                else{
+
+                    Debugger.debug("Please create a world named template");
+
+                }
             }
         }, 60L);
 

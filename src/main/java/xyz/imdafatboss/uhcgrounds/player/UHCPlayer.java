@@ -7,6 +7,7 @@ import xyz.imdafatboss.uhcgrounds.Home;
 import xyz.imdafatboss.uhcgrounds.arena.Arena;
 import xyz.imdafatboss.uhcgrounds.config.FileManager;
 import xyz.imdafatboss.uhcgrounds.game.Game;
+import xyz.imdafatboss.uhcgrounds.utils.Debugger;
 
 import java.util.Set;
 import java.util.UUID;
@@ -34,35 +35,41 @@ public class UHCPlayer {
     public UHCPlayer(Player player){
 
         fm = new FileManager(plugin);
-        FileManager.Config config = fm.getConfig("data.yml");
+        if(player != null) {
+            if (fm.getConfig("data.yml") != null) {
+                FileManager.Config config = fm.getConfig("data.yml");
 
-        this.player = player;
-        this.name = player.getName();
-        this.uuid = player.getUniqueId();
-        this.ingame = false;
-        this.enderpearl = System.currentTimeMillis();
-        this.game = null;
+                this.player = player;
+                this.name = player.getName();
+                this.uuid = player.getUniqueId();
+                this.ingame = false;
+                this.enderpearl = System.currentTimeMillis();
+                this.game = null;
 
-        Set<String> sect = config.get().contains(player.getUniqueId().toString())
-                ? config.get().getConfigurationSection(player.getUniqueId().toString()).getKeys(false) : null;
+                Set<String> sect = config.get().contains(player.getUniqueId().toString())
+                        ? config.get().getConfigurationSection(player.getUniqueId().toString()).getKeys(false) : null;
 
-        if(sect != null && !sect.isEmpty()){
+                if (sect != null && !sect.isEmpty()) {
 
-            String path = player.getUniqueId().toString() + ".";
-            this.wins = config.get().getInt(path + "wins");
-            this.kills = config.get().getInt(path + "kills");
-            this.deaths = config.get().getInt(path + "deaths");
+                    String path = player.getUniqueId().toString() + ".";
+                    this.wins = config.get().getInt(path + "wins");
+                    this.kills = config.get().getInt(path + "kills");
+                    this.deaths = config.get().getInt(path + "deaths");
 
+                } else {
+
+                    this.wins = 0;
+                    this.kills = 0;
+                    this.deaths = 0;
+
+                }
+
+            }
+            Debugger.debug("Unable to create player data.");
+            return;
         }
-
-        else{
-
-            this.wins = 0;
-            this.kills = 0;
-            this.deaths = 0;
-
-        }
-
+        Debugger.debug("Unable to create player data.");
+        return;
     }
 
     public final Player getPlayer(){

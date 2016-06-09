@@ -17,7 +17,7 @@ public class WorldManager {
 
             World s = Bukkit.getWorld(source);
             if(s != null) {
-                
+
                 File sourceFolder = s.getWorldFolder();
                 File targetFolder = new File(Bukkit.getWorldContainer(), target);
 

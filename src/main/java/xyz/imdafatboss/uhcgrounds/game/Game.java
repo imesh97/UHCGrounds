@@ -33,7 +33,6 @@ public class Game {
     private boolean on;
     private boolean lobby;
     private long grace;
-    private List<UHCPlayer> players;
     private UHCPlayer winner;
     private int first;
 
@@ -48,7 +47,6 @@ public class Game {
         this.on = false;
         this.lobby = true;
         this.grace = System.currentTimeMillis();
-        this.players = null;
         this.winner = null;
         this.first = 0;
 

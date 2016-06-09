@@ -6,16 +6,21 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.imdafatboss.uhcgrounds.arena.*;
 import xyz.imdafatboss.uhcgrounds.cmd.api.*;
-import xyz.imdafatboss.uhcgrounds.config.FileManager;
-import xyz.imdafatboss.uhcgrounds.events.Events;
+import xyz.imdafatboss.uhcgrounds.config.*;
+import xyz.imdafatboss.uhcgrounds.events.*;
 import xyz.imdafatboss.uhcgrounds.game.*;
-import xyz.imdafatboss.uhcgrounds.kits.KitManager;
+import xyz.imdafatboss.uhcgrounds.kits.*;
 import xyz.imdafatboss.uhcgrounds.player.*;
-import xyz.imdafatboss.uhcgrounds.utils.Debugger;
+import xyz.imdafatboss.uhcgrounds.utils.*;
 
 public class Home extends JavaPlugin implements Listener{
 
     FileManager fm;
+    CommandManager cmds;
+    UHCPlayer up;
+    Arena ar;
+    Game g;
+    OfflineUHCPlayer oup;
     KitManager km;
     Events evt;
     Lobby lobby;
@@ -25,21 +30,22 @@ public class Home extends JavaPlugin implements Listener{
     public void onEnable(){
 
         fm = new FileManager(this);
+        cmds = new CommandManager(this);
+        up = new UHCPlayer(this);
+        ar = new Arena(this);
+        g = new Game(this);
+        oup = new OfflineUHCPlayer(this);
+        km = new KitManager(this);
+        evt = new Events(this);
+        lobby = new Lobby(this);
+        spawn = new Spawn(this);
+
         fm.getConfig("config.yml").saveDefaultConfig();
         fm.getConfig("data.yml").saveDefaultConfig();
         fm.getConfig("messages.yml").saveDefaultConfig();
         fm.getConfig("kit.yml").saveDefaultConfig();
 
-        new CommandManager(this);
-        new UHCPlayer(this);
-        new Arena(this);
-        new Game(this);
-
         this.getLogger().info("Created by imdafatboss");
-        km = new KitManager(this);
-        evt = new Events(this);
-        lobby = new Lobby(this);
-        spawn = new Spawn(this);
 
         km.updateKit();
         evt.registerEvents(this);
@@ -108,7 +114,7 @@ public class Home extends JavaPlugin implements Listener{
     }
 
     public void savePlayerData(){
-        
+
         fm = new FileManager(this);
         try {
             if (PlayerManager.getPlayers() != null) {

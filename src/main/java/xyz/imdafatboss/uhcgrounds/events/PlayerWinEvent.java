@@ -15,6 +15,7 @@ import xyz.imdafatboss.uhcgrounds.game.GameManager;
 import xyz.imdafatboss.uhcgrounds.game.Spawn;
 import xyz.imdafatboss.uhcgrounds.player.PlayerManager;
 import xyz.imdafatboss.uhcgrounds.player.UHCPlayer;
+import xyz.imdafatboss.uhcgrounds.utils.WorldManager;
 
 import java.util.List;
 
@@ -49,20 +50,34 @@ public class PlayerWinEvent implements Listener{
 
                         if(player.getCurrentGame().getSize() == 1){
 
+                            Arena newArena = new Arena(ArenaManager.getArenas().size());
+                            ArenaManager.addArena(newArena)
+                                    .makeWorld("temp" + newArena.getID());
+                            ArenaManager.getArena(newArena.getID())
+                                    .setWorld(Bukkit.getWorld("temp" + newArena.getID()));
+
+                            Game newGame = new Game(ArenaManager.getArena(newArena.getID()));
+                            GameManager.addGame(newGame);
+
                             p.getInventory().clear();
+                            Location loc = spawn.getSpawn();
+                            p.teleport(loc);
+
+                            WorldManager.unloadWorld(player.getCurrentGame().getArena().getWorld());
+                            WorldManager.deleteWorld(player.getCurrentGame().getArena().getWorld().getName());
+
+                            player.getCurrentGame().setWinner(player);
+                            p.sendMessage(msg.prefix() + msg.getYouWon());
+                            player.setInGame(false);
+
+
                             for(String s : cfg.winCommands(player)){
 
                                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), s);
-                                Location loc = spawn.getSpawn();
-                                p.teleport(loc);
 
                                 List<UHCPlayer> l = player.getCurrentGame().getPlayers();
                                 l.remove(player);
                                 player.getCurrentGame().setPlayers(l);
-
-                                player.getCurrentGame().setWinner(player);
-                                p.sendMessage(msg.prefix() + msg.getYouWon());
-                                player.setInGame(false);
 
                             }
 
@@ -72,14 +87,7 @@ public class PlayerWinEvent implements Listener{
 
                 }, 40L);
 
-                Arena newArena = new Arena(ArenaManager.getArenas().size());
-                ArenaManager.addArena(newArena)
-                    .makeWorld("temp" + newArena.getID());
-                ArenaManager.getArena(newArena.getID())
-                        .setWorld(Bukkit.getWorld("temp" + newArena.getID()));
 
-                Game newGame = new Game(ArenaManager.getArena(newArena.getID()));
-                GameManager.addGame(newGame);
 
             }
 

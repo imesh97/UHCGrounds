@@ -30,9 +30,12 @@ public class RegenEvent implements Listener{
             if(PlayerManager.isUHCPlayer(player)){
 
                 UHCPlayer p = PlayerManager.getPlayer(player);
-                if(!cfg.getRegen()){
+                if(p.isInGame()) {
+                    if (!cfg.getRegen()) {
 
-                    e.setCancelled(true);
+                        e.setCancelled(true);
+
+                    }
 
                 }
 

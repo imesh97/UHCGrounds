@@ -16,10 +16,14 @@ public class WorldManager {
             Bukkit.createWorld(new WorldCreator(target));
 
             World s = Bukkit.getWorld(source);
-            File sourceFolder = s.getWorldFolder();
-            File targetFolder = new File(Bukkit.getWorldContainer(), target);
+            if(s != null) {
+                
+                File sourceFolder = s.getWorldFolder();
+                File targetFolder = new File(Bukkit.getWorldContainer(), target);
 
-            copyWorld(sourceFolder, targetFolder);
+                copyWorld(sourceFolder, targetFolder);
+
+            }
 
         }catch (Exception e){ }
 

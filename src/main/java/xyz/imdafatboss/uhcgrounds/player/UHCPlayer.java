@@ -1,6 +1,7 @@
 package xyz.imdafatboss.uhcgrounds.player;
 
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import xyz.imdafatboss.uhcgrounds.Home;
@@ -46,10 +47,9 @@ public class UHCPlayer {
                 this.enderpearl = System.currentTimeMillis();
                 this.game = null;
 
-                Set<String> sect = config.get().contains(player.getUniqueId().toString())
-                        ? config.get().getConfigurationSection(player.getUniqueId().toString()).getKeys(false) : null;
+                ConfigurationSection sect = config.get().getConfigurationSection(player.getUniqueId().toString());
 
-                if (sect != null && !sect.isEmpty()) {
+                if (sect != null) {
 
                     String path = player.getUniqueId().toString() + ".";
                     this.wins = config.get().getInt(path + "wins");

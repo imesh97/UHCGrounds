@@ -11,13 +11,19 @@ import java.util.*;
 public class Arena {
 
     Home plugin;
+    public Arena(Home instance){
+
+        this.plugin = instance;
+
+    }
     FileManager fm;
 
-    private final int id;
+    private int id;
     private List<UHCPlayer> players;
     private World world;
 
     public Arena(int id){
+
 
         fm = new FileManager(plugin);
 

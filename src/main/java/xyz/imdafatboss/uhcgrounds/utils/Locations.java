@@ -11,8 +11,9 @@ public class Locations {
         if(location != null) {
             String s = location.getBlockX() + "/" + location.getBlockY() + "/" + location.getBlockZ() + "/"
                     + location.getWorld().getName();
+            return s;
         }
-        return null;
+        return "9/66/126/world";
 
     }
 

@@ -11,13 +11,17 @@ public class WorldManager {
 
     public static void copyWorlds(String source, String target){
 
-        Bukkit.createWorld(new WorldCreator(target));
+        try {
 
-        World s = Bukkit.getWorld(source);
-        File sourceFolder = s.getWorldFolder();
-        File targetFolder = new File(Bukkit.getWorldContainer(),target);
+            Bukkit.createWorld(new WorldCreator(target));
 
-        copyWorld(sourceFolder, targetFolder);
+            World s = Bukkit.getWorld(source);
+            File sourceFolder = s.getWorldFolder();
+            File targetFolder = new File(Bukkit.getWorldContainer(), target);
+
+            copyWorld(sourceFolder, targetFolder);
+
+        }catch (Exception e){ }
 
     }
 

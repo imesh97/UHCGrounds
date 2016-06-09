@@ -11,6 +11,7 @@ import xyz.imdafatboss.uhcgrounds.events.Events;
 import xyz.imdafatboss.uhcgrounds.game.*;
 import xyz.imdafatboss.uhcgrounds.kits.KitManager;
 import xyz.imdafatboss.uhcgrounds.player.*;
+import xyz.imdafatboss.uhcgrounds.utils.Debugger;
 
 public class Home extends JavaPlugin implements Listener{
 
@@ -81,16 +82,21 @@ public class Home extends JavaPlugin implements Listener{
 
     public void savePlayerData(){
 
-        for(UHCPlayer p : PlayerManager.getPlayers()){
+        if(PlayerManager.getPlayers() != null) {
+            for (UHCPlayer p : PlayerManager.getPlayers()) {
 
-            String path = p.getUUID().toString() + ".";
+                String path = p.getUUID().toString() + ".";
 
-            fm.getConfig("data.yml").get().set(path + "wins", p.getWins());
-            fm.getConfig("data.yml").get().set(path + "kills", p.getKills());
-            fm.getConfig("data.yml").get().set(path + "deaths", p.getDeaths());
-            fm.getConfig("data.yml").save();
+                fm.getConfig("data.yml").get().set(path + "wins", p.getWins());
+                fm.getConfig("data.yml").get().set(path + "kills", p.getKills());
+                fm.getConfig("data.yml").get().set(path + "deaths", p.getDeaths());
+                fm.getConfig("data.yml").save();
+                return;
 
+            }
         }
+
+        Debugger.debug("No player data was save because none existed.");
 
     }
 

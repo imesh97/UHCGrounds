@@ -37,8 +37,8 @@ public class UHCPlayer {
 
         fm = new FileManager(plugin);
         if(player != null) {
-            if (fm.getConfig("data.yml") != null) {
                 FileManager.Config config = fm.getConfig("data.yml");
+            if(config != null){
 
                 this.player = player;
                 this.name = player.getName();

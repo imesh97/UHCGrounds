@@ -47,11 +47,11 @@ public class UHCPlayer {
                 this.enderpearl = System.currentTimeMillis();
                 this.game = null;
 
-                ConfigurationSection sect = config.get().getConfigurationSection(player.getUniqueId().toString());
+                String key = player.getUniqueId().toString();
 
-                if (sect != null) {
+                if (config.get().contains(key)) {
 
-                    String path = player.getUniqueId().toString() + ".";
+                    String path = key + ".";
                     this.wins = config.get().getInt(path + "wins");
                     this.kills = config.get().getInt(path + "kills");
                     this.deaths = config.get().getInt(path + "deaths");

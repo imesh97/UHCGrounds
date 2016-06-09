@@ -15,7 +15,7 @@ import xyz.imdafatboss.uhcgrounds.utils.Debugger;
 
 public class Home extends JavaPlugin implements Listener{
 
-    FileManager fm = new FileManager(this);
+    FileManager fm;
     KitManager km;
     Events evt;
     Lobby lobby;
@@ -24,6 +24,7 @@ public class Home extends JavaPlugin implements Listener{
     @Override
     public void onEnable(){
 
+        fm = new FileManager(this);
         fm.getConfig("config.yml").saveDefaultConfig();
         fm.getConfig("data.yml").saveDefaultConfig();
         fm.getConfig("messages.yml").saveDefaultConfig();
@@ -107,7 +108,8 @@ public class Home extends JavaPlugin implements Listener{
     }
 
     public void savePlayerData(){
-
+        
+        fm = new FileManager(this);
         try {
             if (PlayerManager.getPlayers() != null) {
                 for (UHCPlayer p : PlayerManager.getPlayers()) {

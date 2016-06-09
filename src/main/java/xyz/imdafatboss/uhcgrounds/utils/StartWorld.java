@@ -1,6 +1,11 @@
 package xyz.imdafatboss.uhcgrounds.utils;
 
+import org.bukkit.Bukkit;
+import org.bukkit.World;
+import org.bukkit.WorldCreator;
 import xyz.imdafatboss.uhcgrounds.arena.*;
+
+import java.io.File;
 
 public class StartWorld {
 
@@ -12,11 +17,17 @@ public class StartWorld {
 
     public static void startWorld(){
 
-        int i = latestArena();
-        String source = "template";
-        String target = "temp" + i;
+        String s = "temp" + latestArena();
 
-        WorldManager.copyWorlds(source, target);
+        Bukkit.createWorld(new WorldCreator(s));
+        Debugger.debug("Made world " + s);
+
+        World source = Bukkit.getWorld("template");
+        File sourceFolder = source.getWorldFolder();
+        File targetFolder = new File(Bukkit.getWorldContainer(), s);
+
+        WorldManager.copyWorld(sourceFolder, targetFolder);
+        Debugger.debug("Copied worlds.");
 
     }
 

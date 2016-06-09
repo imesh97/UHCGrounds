@@ -93,23 +93,25 @@ public class Home extends JavaPlugin implements Listener{
 
     public void savePlayerData(){
 
-        if(PlayerManager.getPlayers() != null) {
-            for (UHCPlayer p : PlayerManager.getPlayers()) {
+        try {
+            if (PlayerManager.getPlayers() != null) {
+                for (UHCPlayer p : PlayerManager.getPlayers()) {
 
-                if(p != null) {
-                    String path = p.getUUID().toString() + ".";
+                    if (p != null) {
+                        String path = p.getUUID().toString() + ".";
 
-                    fm.getConfig("data.yml").get().set(path + "wins", p.getWins());
-                    fm.getConfig("data.yml").get().set(path + "kills", p.getKills());
-                    fm.getConfig("data.yml").get().set(path + "deaths", p.getDeaths());
-                    fm.getConfig("data.yml").save();
-                    return;
+                        fm.getConfig("data.yml").get().set(path + "wins", p.getWins());
+                        fm.getConfig("data.yml").get().set(path + "kills", p.getKills());
+                        fm.getConfig("data.yml").get().set(path + "deaths", p.getDeaths());
+                        fm.getConfig("data.yml").save();
+                        return;
+                    }
+
                 }
-
             }
-        }
 
-        Debugger.debug("No player data was save because none existed.");
+            Debugger.debug("No player data was save because none existed.");
+        }catch (Exception e){ }
 
     }
 

@@ -110,7 +110,7 @@ public class Messages {
     public String getPlayerLeft(UHCPlayer player){
 
         String s =  Msg.translate(this.getConfig().getString("player-left"));
-        String s1 = s.replaceAll("%player%", player.getName()).toString();
+        String s1 = s.replaceAll("%player%", player.getName());
 
         return s1;
 
@@ -119,8 +119,8 @@ public class Messages {
     public String getPlayerDied(UHCPlayer killer, UHCPlayer victim){
 
         String s = Msg.translate(this.getConfig().getString("player-death"));
-        String s1 = s.replaceAll("%killer%", killer.getName()).toString();
-        String s2 = s1.replaceAll("%victim%", victim.getName()).toString();
+        String s1 = s.replaceAll("%killer%", killer.getName());
+        String s2 = s1.replaceAll("%victim%", victim.getName());
 
         return s2;
 
@@ -129,8 +129,8 @@ public class Messages {
     public String getPlayersLeft(int first, int now){
 
         String s = Msg.translate(this.getConfig().getString("total-left"));
-        String s1 = s.replaceAll("%total%", first + "").toString();
-        String s2 = s1.replaceAll("%now%", now + "").toString();
+        String s1 = s.replaceAll("%total%", first + "");
+        String s2 = s1.replaceAll("%now%", now + "");
 
         return s2;
 

@@ -19,10 +19,13 @@ public class MakeUHCPlayerEvent implements Listener{
     @EventHandler
     public void onMakeUHCPlayer(PlayerJoinEvent e){
 
-        if(!PlayerManager.isUHCPlayer(e.getPlayer())){
+        if(e.getPlayer() != null) {
+            if (!PlayerManager.isUHCPlayer(e.getPlayer())) {
 
-            UHCPlayer p = new UHCPlayer(e.getPlayer());
-            PlayerManager.addPlayer(p);
+                UHCPlayer p = new UHCPlayer(e.getPlayer());
+                PlayerManager.addPlayer(p);
+
+            }
 
         }
 

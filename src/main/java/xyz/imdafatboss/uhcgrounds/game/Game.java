@@ -19,12 +19,17 @@ import java.util.List;
 public class Game {
 
     Home plugin;
+    public Game(Home instance){
+
+        this.plugin = instance;
+
+    }
     Messages msg;
     ConfigYML cfg;
     KitManager km;
 
-    private final int id;
-    private final Arena arena;
+    private int id;
+    private Arena arena;
     private boolean on;
     private boolean lobby;
     private long grace;

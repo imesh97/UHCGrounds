@@ -29,13 +29,16 @@ public class Home extends JavaPlugin implements Listener{
         fm.getConfig("messages.yml").saveDefaultConfig();
         fm.getConfig("kit.yml").saveDefaultConfig();
 
+        new CommandManager(this);
+        new UHCPlayer(this);
+        new Arena(this);
+        new Game(this);
+
         this.getLogger().info("Created by imdafatboss");
         km = new KitManager(this);
         evt = new Events(this);
         lobby = new Lobby(this);
         spawn = new Spawn(this);
-
-        new CommandManager(this);
 
         km.updateKit();
         evt.registerEvents(this);

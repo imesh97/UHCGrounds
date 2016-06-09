@@ -69,6 +69,17 @@ public class Home extends JavaPlugin implements Listener{
     @Override
     public void onDisable(){
 
+        for(Player p : Bukkit.getOnlinePlayers()){
+
+            if(!PlayerManager.isUHCPlayer(p)){
+
+                UHCPlayer player = new UHCPlayer(p);
+                PlayerManager.addPlayer(player);
+
+            }
+
+        }
+
         km = new KitManager(this);
         lobby = new Lobby(this);
         spawn = new Spawn(this);
